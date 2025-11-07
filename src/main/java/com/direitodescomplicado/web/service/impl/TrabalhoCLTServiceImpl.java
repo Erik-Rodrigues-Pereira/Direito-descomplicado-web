@@ -58,4 +58,26 @@ public class TrabalhoCLTServiceImpl implements TrabalhoCLTService {
         LOG.debug("Request to delete TrabalhoCLT : {}", id);
         trabalhoCLTRepository.deleteById(id);
     }
+
+    @Override
+    public TrabalhoCLTDTO update(TrabalhoCLTDTO trabalhoCLTDTO) {
+        LOG.debug("Request to update TrabalhoCLT : {}", trabalhoCLTDTO);
+        TrabalhoCLT trabalhoCLT = trabalhoCLTMapper.toEntity(trabalhoCLTDTO);
+        trabalhoCLT = trabalhoCLTRepository.save(trabalhoCLT);
+        return trabalhoCLTMapper.toDto(trabalhoCLT);
+    }
+
+    @Override
+    public Optional<TrabalhoCLTDTO> partialUpdate(TrabalhoCLTDTO trabalhoCLTDTO) {
+        LOG.debug("Request to partially update TrabalhoCLT : {}", trabalhoCLTDTO);
+
+        return trabalhoCLTRepository
+            .findById(trabalhoCLTDTO.getId())
+            .map(existingTrabalhoCLT -> {
+                trabalhoCLTMapper.partialUpdate(existingTrabalhoCLT, trabalhoCLTDTO);
+                return existingTrabalhoCLT;
+            })
+            .map(trabalhoCLTRepository::save)
+            .map(trabalhoCLTMapper::toDto);
+    }
 }

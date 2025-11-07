@@ -58,4 +58,26 @@ public class ConsumidorServiceImpl implements ConsumidorService {
         LOG.debug("Request to delete Consumidor : {}", id);
         consumidorRepository.deleteById(id);
     }
+
+    @Override
+    public ConsumidorDTO update(ConsumidorDTO consumidorDTO) {
+        LOG.debug("Request to update Consumidor : {}", consumidorDTO);
+        Consumidor consumidor = consumidorMapper.toEntity(consumidorDTO);
+        consumidor = consumidorRepository.save(consumidor);
+        return consumidorMapper.toDto(consumidor);
+    }
+
+    @Override
+    public Optional<ConsumidorDTO> partialUpdate(ConsumidorDTO consumidorDTO) {
+        LOG.debug("Request to partially update Consumidor : {}", consumidorDTO);
+
+        return consumidorRepository
+            .findById(consumidorDTO.getId())
+            .map(existingConsumidor -> {
+                consumidorMapper.partialUpdate(existingConsumidor, consumidorDTO);
+                return existingConsumidor;
+            })
+            .map(consumidorRepository::save)
+            .map(consumidorMapper::toDto);
+    }
 }

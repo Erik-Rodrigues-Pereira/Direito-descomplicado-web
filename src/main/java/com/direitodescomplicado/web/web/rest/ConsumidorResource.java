@@ -37,11 +37,8 @@ public class ConsumidorResource {
 
     private final ConsumidorService consumidorService;
 
-    private final ConsumidorRepository consumidorRepository;
-
     public ConsumidorResource(ConsumidorService consumidorService, ConsumidorRepository consumidorRepository) {
         this.consumidorService = consumidorService;
-        this.consumidorRepository = consumidorRepository;
     }
 
     /**

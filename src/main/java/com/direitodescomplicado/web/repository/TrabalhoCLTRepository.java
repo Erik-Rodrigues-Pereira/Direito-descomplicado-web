@@ -7,6 +7,5 @@ import org.springframework.stereotype.Repository;
 /**
  * Spring Data JPA repository for the TrabalhoCLT entity.
  */
-@SuppressWarnings("unused")
 @Repository
 public interface TrabalhoCLTRepository extends JpaRepository<TrabalhoCLT, Long> {}
