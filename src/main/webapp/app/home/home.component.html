@@ -1,0 +1,94 @@
+<div class="row">
+  <div class="col-md-9 mx-auto text-center">
+    <h1 class="display-4 mb-5">Direito Descomplicado</h1>
+
+    <div class="d-inline-block text-start">
+      @if (account() !== null) {
+        <div class="alert alert-success text-center">
+          @if (account(); as accountRef) {
+            <span id="home-logged-message">Você está logado como &quot;{{ accountRef.login }}&quot;.</span>
+          }
+        </div>
+
+        <div class="card mb-5">
+          <img src="\content\images\HOME1.svg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title text-center">Bem Vindo!</h5>
+            <p class="card-text">
+              Obrigado por acessar o nosso site, ele ainda está em desenvolvimento então pode encortrar alguns erros, se possível mande seu
+              feedback com possíveis melhoria, obrigado!
+            </p>
+          </div>
+        </div>
+
+        <div class="card mb-5">
+          <img src="\content\images\HOME2.svg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title text-center">Como funciona o site?</h5>
+            <p class="card-text">
+              Para começar, localize no canto superior direito a aba "Ramos do Direito". Lá, você terá acesso imediato às principais leis de
+              diferentes áreas jurídicas.
+            </p>
+            <p class="card-text">Em seguida, fique à vontade para explorar o nosso catálogo completo.</p>
+          </div>
+        </div>
+
+        <div class="alert alert-success text-center" role="alert">
+          <a
+            href="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAN__mXSRdJUMVpPNjY1SEZHMjJEQlpIT1RBNjIwM05PWC4u"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="alert-link"
+          >
+            Clique aqui para responder ao nosso formulário!
+          </a>
+        </div>
+      } @else {
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          <div class="col">
+            <div class="card">
+              <img src="\content\images\Img1.svg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">O QUE É O JURIDIQUÊS?</h5>
+                <p class="card-text">
+                  O linguajar técnico das leis é uma barreira real. Entenda por que o Direito se torna inacessível e descubra como a nossa
+                  tecnologia vai mudar isso.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img src="\content\images\Img2.svg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">NAVEGUE PELAS LEIS</h5>
+                <p class="card-text">
+                  Nosso catálogo possui as leis mais importantes já traduzidas para a linguagem comum. Encontre e entenda o que é essencial
+                  para sua família.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img src="\content\images\Img3.svg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">ENTENDA SEUS DEVERES</h5>
+                <p class="card-text">
+                  Elimine as dúvidas! Com a lei traduzida, você finalmente consegue entender o que a legislação exige de você e como exercer
+                  seus direitos com segurança.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+    @if (account() === null) {
+      <div class="mt-4">
+        <button type="button" class="btn btn-outline-dark" (click)="login()">Entrar</button>&nbsp;
+        <button type="button" class="btn btn-outline-dark" routerLink="/account/register">Cadastrar</button>
+      </div>
+    }
+  </div>
+</div>

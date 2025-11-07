@@ -1,0 +1,14 @@
+{
+  "annotations": {
+    "changelogDate": "20251107034934"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "entityTableName": "trabalho_clt",
+  "fields": [],
+  "name": "TrabalhoCLT",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

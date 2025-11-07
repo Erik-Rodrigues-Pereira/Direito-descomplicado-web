@@ -1,0 +1,14 @@
+{
+  "annotations": {
+    "changelogDate": "20251107034933"
+  },
+  "applications": "*",
+  "documentation": "ENTIDADES FINAIS (Apenas os 5 Tópicos)",
+  "dto": "mapstruct",
+  "fields": [],
+  "name": "Consumidor",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}
